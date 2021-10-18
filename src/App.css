@@ -36,3 +36,51 @@
     transform: rotate(360deg);
   }
 }
+
+ul > li {
+  list-style-type: none;
+}
+
+.app-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-template-areas:
+          'h h'
+          'sidebar main';
+  width: 1200px;
+}
+
+.header {
+  grid-area: h;
+  background-color: #323FA6;
+}
+
+.header__logo {
+  width: 80px;
+}
+
+.nav {
+  grid-area: sidebar;
+  background-color: #F1F3F4;
+}
+
+.main {
+  grid-area: main;
+}
+
+.main__banner {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.main__descr-img {
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}

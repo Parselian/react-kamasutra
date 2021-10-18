@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Profile from "./components/Profile";
 
-function App() {
+// <App />
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    //ВСЕГДА должен быть ОДИН корневой узел
+    // Это не HTML разметка, а JSX разметка (HTML, встроенный в JS)
+    <div className="app-wrapper">
+      <Header />
+      <Navbar />
+      <Profile />
     </div>
-  );
+  )
 }
 
 export default App;
