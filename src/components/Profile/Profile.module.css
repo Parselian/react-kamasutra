@@ -1,0 +1,17 @@
+.profile {
+    grid-area: main;
+}
+
+.profile__banner {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.profile__descr-img {
+    width: 100px;
+    height: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}
