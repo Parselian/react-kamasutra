@@ -54,9 +54,13 @@ ul > li {
   grid-template-columns: 2fr 10fr;
   grid-template-areas:
           'h h'
-          'sidebar profile';
+          'sidebar content';
   grid-gap: 20px;
   width: 1200px;
+}
+
+.app-wrapper__content {
+    grid-area: content;
 }
 
 .section__title {
