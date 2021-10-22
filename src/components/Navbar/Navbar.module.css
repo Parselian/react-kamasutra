@@ -4,13 +4,13 @@
     background-color: #F1F3F4;
 }
 
-.item > .link{
+.link{
     color: darkgrey;
     text-decoration: none;
     font-size: 20px;
 }
 
-.item.active > .link{
+.active{
     color: gold;
 }
 
