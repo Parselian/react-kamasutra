@@ -1,4 +1,5 @@
 .App {
+  box-sizing: border-box;
   text-align: center;
 }
 
@@ -37,6 +38,10 @@
   }
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
 ul > li {
   list-style-type: none;
 }
@@ -49,38 +54,12 @@ ul > li {
   grid-template-columns: 2fr 10fr;
   grid-template-areas:
           'h h'
-          'sidebar main';
+          'sidebar profile';
+  grid-gap: 20px;
   width: 1200px;
 }
 
-.header {
-  grid-area: h;
-  background-color: #323FA6;
-}
-
-.header__logo {
-  width: 80px;
-}
-
-.nav {
-  grid-area: sidebar;
-  background-color: #F1F3F4;
-}
-
-.main {
-  grid-area: main;
-}
-
-.main__banner {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-}
-
-.main__descr-img {
-  width: 100px;
-  height: 100px;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  border-radius: 100px;
+.section__title {
+  font-size: 24px;
+  margin-bottom: 25px;
 }

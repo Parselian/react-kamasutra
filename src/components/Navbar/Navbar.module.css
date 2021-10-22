@@ -1,4 +1,23 @@
 .nav {
+    padding: 10px 0 15px 15px;
     grid-area: sidebar;
     background-color: #F1F3F4;
+}
+
+.item > .link{
+    color: darkgrey;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.item.active > .link{
+    color: gold;
+}
+
+.item:not(:last-child) {
+    margin-bottom: 3px;
+}
+
+.item:last-child {
+    margin-top: 30px;
 }

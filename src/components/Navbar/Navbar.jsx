@@ -1,20 +1,24 @@
+import classes from './Navbar.module.css'
+
+const linkActive = `${classes.item} ${classes.active}`
+
 const Navbar = () => {
   return (
-    <nav className='nav'>
-      <div>
-        <a href="#">Profile</a>
+    <nav className={classes.nav}>
+      <div className={classes.item}>
+        <a href="#" className={classes.link}>Profile</a>
       </div>
-      <div>
-        <a href="#">Messages</a>
+      <div className={linkActive}>
+        <a href="#" className={classes.link}>Messages</a>
       </div>
-      <div>
-        <a href="#">News</a>
+      <div className={classes.item}>
+        <a href="#" className={classes.link}>News</a>
       </div>
-      <div>
-        <a href="#">Music</a>
+      <div className={classes.item}>
+        <a href="#" className={classes.link}>Music</a>
       </div>
-      <div>
-        <a href="#">Settings</a>
+      <div className={classes.item}>
+        <a href="#" className={classes.link}>Settings</a>
       </div>
     </nav>
   )
