@@ -1,0 +1,33 @@
+.dialog {
+    padding: 8px 10px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-template-areas:
+        'img name'
+        'img text';
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+
+.dialog:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.active {
+    background-color: lightblue;
+}
+
+.dialog__img {
+    margin-right: 20px;
+    width: 60px;
+    height: 60px;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+    grid-area: img;
+}
+
+.dialog__name {
+    font-weight: 700;
+}

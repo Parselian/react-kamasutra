@@ -55,7 +55,6 @@ ul > li {
   grid-template-areas:
           'h h'
           'sidebar content';
-  grid-gap: 20px;
   width: 1200px;
 }
 

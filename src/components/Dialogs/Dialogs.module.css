@@ -1,1 +1,20 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas:
+        'title title'
+        'list chat';
+}
 
+.dialogs__title {
+    grid-area: title;
+}
+
+.dialogs__list {
+    margin-right: 20px;
+    grid-area: list;
+}
+
+.messages {
+    grid-area: chat;
+}
