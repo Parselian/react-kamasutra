@@ -17,6 +17,8 @@ const Posts = () => {
     }
   ];
 
+  const posts = postsData.map(post => <Post message={post.text} likesCount={post.likesCount}/>)
+
   return (
     <div className={classes.posts}>
       <h2 className="section__title">Posts</h2>
@@ -26,9 +28,7 @@ const Posts = () => {
         <button type="submit" className={classes.submit}>Send</button>
       </form>
 
-      <Post message={postsData[0].text} likesCount={postsData[0].likesCount}/>
-      <Post message={postsData[1].text} likesCount={postsData[1].likesCount}/>
-      <Post message={postsData[2].text} likesCount={postsData[2].likesCount}/>
+      { posts }
     </div>
   )
 }
