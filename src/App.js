@@ -9,7 +9,7 @@ import Settings from "./components/Settings/Settings"
 import {BrowserRouter as Router, Route} from "react-router-dom"
 
 // <App />
-const App = () => {
+const App = (props) => {
   return (
     //ВСЕГДА должен быть ОДИН корневой узел
     // Это не HTML разметка, а JSX разметка (HTML, встроенный в JS)
@@ -18,8 +18,8 @@ const App = () => {
         <Header/>
         <Navbar/>
         <div className="app-wrapper__content">
-          <Route component={Profile} path="/profile"/>
-          <Route component={Dialogs} path="/messages"/>
+          <Route render={ () => <Profile data={props.profilePage}/> } path="/profile"/>
+          <Route render={ () => <Dialogs data={props.dialogsPage}/> } path="/messages"/>
           <Route component={News} path="/news" />
           <Route component={Music} path="/music"/>
           <Route component={Settings} path="/settings" />

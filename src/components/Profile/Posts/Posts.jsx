@@ -1,23 +1,9 @@
 import classes from "./Posts.module.css";
 import Post from "./Post/Post";
 
-const Posts = () => {
-  let postsData = [
-    {
-      text: "Post lorem 1",
-      likesCount: 9
-    },
-    {
-      text: "Post lorem 2",
-      likesCount: 3
-    },
-    {
-      text: "Post lorem 3",
-      likesCount: 0
-    }
-  ];
+const Posts = (props) => {
 
-  const posts = postsData.map(post => <Post message={post.text} likesCount={post.likesCount}/>)
+  const posts = props.data.posts.map(post => <Post message={post.text} likesCount={post.likesCount}/>)
 
   return (
     <div className={classes.posts}>

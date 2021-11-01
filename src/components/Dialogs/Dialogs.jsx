@@ -2,47 +2,14 @@ import classes from './Dialogs.module.css'
 import Dialog from "./Dialog/Dialog"
 import Message from "./Message/Message"
 
-const Dialogs = () => {
-  let dialogsData = [
-    {
-      id: 1,
-      name: "Dmitry",
-      msg: "Hi",
-      img: "https://cat4you.ru/wp-content/uploads/2/0/6/206748a82ce4894a460e2b70981e08f2.jpeg"
-    },
-    {
-      id: 2,
-      name: "Olya",
-      msg: "Morning",
-      img: "https://cat4you.ru/wp-content/uploads/2/0/6/206748a82ce4894a460e2b70981e08f2.jpeg"
-    },
-    {
-      id: 3,
-      name: "Sasha",
-      msg: "Sorry, i bus...",
-      img: "https://cat4you.ru/wp-content/uploads/2/0/6/206748a82ce4894a460e2b70981e08f2.jpeg"
-    }
-  ];
-  let messagesData = [
-    {
-      userID: 1,
-      message: "Hi"
-    },
-    {
-      userID: 1,
-      message: "Morning"
-    },
-    {
-      userID: 1,
-      message: "How are you?"
-    },
-  ];
+const Dialogs = (props) => {
 
-  const dialogs = dialogsData.map((dialog) => {
+
+  const dialogs = props.data.dialogs.map((dialog) => {
     return <Dialog id={dialog.id} name={dialog.name} msg={dialog.msg} img={dialog.img}/>
   })
 
-  const messages = messagesData.map(message => <Message message={message.message}/>)
+  const messages = props.data.messages.map(message => <Message message={message.message}/>)
 
   return (
     <div className={classes.dialogs}>
