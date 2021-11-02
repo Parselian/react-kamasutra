@@ -1,0 +1,37 @@
+.message {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.message:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.img {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+.message:nth-child(even) > .img {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.text {
+    margin-top: 5px;
+    padding: 3px 10px 5px 10px;
+    border: 1px solid gray;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    height: fit-content;
+}
+
+.message:nth-child(even) > .text {
+    text-align: right;
+}
