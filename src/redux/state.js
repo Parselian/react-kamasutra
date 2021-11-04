@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 let state = {
   navbar: {
     friends: [
@@ -19,16 +21,20 @@ let state = {
     ]
   },
   profilePage: {
+    draftPost: '',
     posts: [
       {
+        id: 1,
         text: "Post lorem 1",
         likesCount: 9
       },
       {
+        id: 2,
         text: "Post lorem 2",
         likesCount: 3
       },
       {
+        id: 3,
         text: "Post lorem 3",
         likesCount: 0
       }
@@ -70,6 +76,25 @@ let state = {
       },
     ]
   },
+}
+
+export const addPost = (postMessage) => {
+  const postsArr = state.profilePage.posts
+
+  const post = {
+    id: postsArr[postsArr.length - 1].id + 1,
+    text: postMessage,
+    likesCount: 0
+  }
+
+  postsArr.push(post)
+  state.profilePage.draftPost = null
+  rerenderEntireTree(state)
+}
+
+export const savePostDraft = (postMessage) => {
+  state.profilePage.draftPost = postMessage
+  console.log(state)
 }
 
 export default state

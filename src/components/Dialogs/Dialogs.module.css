@@ -18,3 +18,34 @@
 .messages {
     grid-area: chat;
 }
+
+.messages__list {
+    margin-bottom: 40px;
+}
+
+.toolbar {
+    display: flex;
+}
+
+.textarea {
+    margin-right: 10px;
+    padding: 7px 15px;
+    width: 80%;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    resize: none
+}
+
+.button {
+    width: 13%;
+    padding: 5px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: royalblue;
+    border: none;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    cursor: pointer;
+}
