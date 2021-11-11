@@ -21,7 +21,7 @@ let state = {
     ]
   },
   profilePage: {
-    draftPost: '',
+    postDraft: '',
     posts: [
       {
         id: 1,
@@ -88,13 +88,14 @@ export const addPost = (postMessage) => {
   }
 
   postsArr.push(post)
-  state.profilePage.draftPost = null
+  state.profilePage.postDraft = ''
   rerenderEntireTree(state)
 }
 
 export const savePostDraft = (postMessage) => {
-  state.profilePage.draftPost = postMessage
-  console.log(state)
+  state.profilePage.postDraft = postMessage
+
+  rerenderEntireTree(state)
 }
 
 export default state
