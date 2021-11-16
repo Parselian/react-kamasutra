@@ -62,6 +62,7 @@ let store = {
           img: "https://cat4you.ru/wp-content/uploads/2/0/6/206748a82ce4894a460e2b70981e08f2.jpeg"
         }
       ],
+      messageDraft: '',
       messages: [
         {
           userID: 1,
@@ -95,8 +96,22 @@ let store = {
     this.state.profilePage.postDraft = ''
     this.subscriber()
   },
+  sendMessage() {
+    const message = {
+      userID: 1,
+      message: this.state.dialogsPage.messageDraft
+    }
+
+    this.state.dialogsPage.messages.push(message)
+    this.state.dialogsPage.messageDraft = ''
+    this.subscriber()
+  },
   savePostDraft(postMessage) {
     this.state.profilePage.postDraft = postMessage
+    this.subscriber()
+  },
+  saveMessageDraft(textMessage) {
+    this.state.dialogsPage.messageDraft = textMessage
     this.subscriber()
   },
   subscribe(observer) {

@@ -9,13 +9,15 @@ const Dialogs = (props) => {
   })
 
   const messages = props.state.messages.map(message => <Message message={message.message}/>)
-
   const newMessageElement = React.createRef()
 
   const sendMessage = () => {
-    const textMessage = newMessageElement.current.value
+    props.store.sendMessage()
+  }
 
-    alert(textMessage)
+  const saveMessageDraft = () => {
+    const textMessage = newMessageElement.current.value
+    props.store.saveMessageDraft(textMessage)
   }
 
   return (
@@ -33,8 +35,8 @@ const Dialogs = (props) => {
         </div>
 
         <div className={classes.toolbar}>
-          <textarea ref={newMessageElement} rows="1" className={classes.textarea}
-                    placeholder="Enter your message"></textarea>
+          <textarea ref={newMessageElement} onChange={saveMessageDraft} value={props.state.messageDraft} rows="1"
+                    className={classes.textarea} placeholder="Enter your message"></textarea>
           <button onClick={sendMessage} className={classes.button}>Send</button>
         </div>
       </div>
