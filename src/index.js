@@ -2,15 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import store from './redux/state'
-// import state from './redux/state'
-// import {addPost, savePostDraft, subscriber} from './redux/state'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
 export const rerenderEntireTree = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state={store.getState()} store={store} />
+      <App state={store.getState()} addPost={store.addPost.bind(store)}
+           savePostDraft={store.savePostDraft.bind(store)} sendMessage={store.sendMessage.bind(store)}
+           saveMessageDraft={store.saveMessageDraft.bind(store)} />
     </React.StrictMode>,
     document.getElementById('root')
   );

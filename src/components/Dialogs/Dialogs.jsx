@@ -7,17 +7,14 @@ const Dialogs = (props) => {
   const dialogs = props.state.dialogs.map((dialog) => {
     return <Dialog id={dialog.id} name={dialog.name} msg={dialog.msg} img={dialog.img}/>
   })
-
   const messages = props.state.messages.map(message => <Message message={message.message}/>)
   const newMessageElement = React.createRef()
-
   const sendMessage = () => {
-    props.store.sendMessage()
+    props.sendMessage()
   }
-
   const saveMessageDraft = () => {
     const textMessage = newMessageElement.current.value
-    props.store.saveMessageDraft(textMessage)
+    props.saveMessageDraft(textMessage)
   }
 
   return (

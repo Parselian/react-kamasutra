@@ -6,13 +6,11 @@ const Posts = (props) => {
   const posts = props.state.posts.map(post => <Post message={post.text} likesCount={post.likesCount}/>)
   const newPostElement = React.createRef()
   const addPost = () => {
-    props.store.addPost(props.state.postDraft)
+    props.addPost(props.state.postDraft)
   }
-
   const savePostDraft = () => {
     let text = newPostElement.current.value
-
-    props.store.savePostDraft(text)
+    props.savePostDraft(text)
   }
 
   return (
