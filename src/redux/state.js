@@ -1,4 +1,4 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree;
 
 let state = {
   navbar: {
@@ -96,6 +96,10 @@ export const savePostDraft = (postMessage) => {
   state.profilePage.postDraft = postMessage
 
   rerenderEntireTree(state)
+}
+
+export const subscriber = (observer) => {
+  rerenderEntireTree = observer
 }
 
 export default state

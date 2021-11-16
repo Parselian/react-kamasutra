@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68a86bd2-184b-43d6-ae56-64a094651814" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/react-kamasutra.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Posts/Posts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Posts/Posts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -77,16 +81,10 @@
       <workItem from="1634572423360" duration="5060000" />
       <workItem from="1634656942043" duration="2813000" />
       <workItem from="1634833053784" duration="2099000" />
-      <workItem from="1634895416141" duration="4369000" />
-      <workItem from="1635169345702" duration="4839000" />
-      <workItem from="1635436558587" duration="3814000" />
-      <workItem from="1635524340388" duration="973000" />
-      <workItem from="1635769429114" duration="1229000" />
-      <workItem from="1635793136454" duration="547000" />
-      <workItem from="1635857882610" duration="3924000" />
-      <workItem from="1636012146885" duration="4819000" />
-      <workItem from="1636316042591" duration="6000" />
-      <workItem from="1636643759767" duration="962000" />
+      <workItem from="1634895416141" duration="5439000" />
+      <workItem from="1636968379281" duration="27000" />
+      <workItem from="1636968438153" duration="983000" />
+      <workItem from="1637053108127" duration="87000" />
     </task>
     <servers />
   </component>
