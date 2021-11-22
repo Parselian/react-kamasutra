@@ -1,7 +1,7 @@
 let rerenderEntireTree;
 
 let store = {
-  state: {
+  _state: {
     navbar: {
       friends: [
         {
@@ -83,39 +83,45 @@ let store = {
     console.log('subscriber doesn`t exist!')
   },
   getState() {
-    return this.state
+    return this._state
   },
-  addPost() {
-    const postsArr = this.state.profilePage.posts
-    const post = {
-      id: postsArr[postsArr.length - 1].id + 1,
-      text: this.state.profilePage.postDraft,
-      likesCount: 0
+  dispatch(action) {
+    switch (true) {
+      case action.type === 'ADD-POST':
+        const postsArr = this._state.profilePage.posts
+        const post = {
+          id: postsArr[postsArr.length - 1].id + 1,
+          text: this._state.profilePage.postDraft,
+          likesCount: 0
+        }
+        postsArr.push(post)
+        this._state.profilePage.postDraft = ''
+        this._subscriber()
+        break
+      case action.type === 'SAVE-POST-DRAFT':
+        this._state.profilePage.postDraft = action.postMessage
+        this._subscriber()
+        break
+      case action.type === 'SEND-MESSAGE':
+        const message = {
+          userID: 1,
+          message: this._state.dialogsPage.messageDraft
+        }
+        this._state.dialogsPage.messages.push(message)
+        this._state.dialogsPage.messageDraft = ''
+        this._subscriber()
+        break
+      case action.type === 'SAVE-MESSAGE-DRAFT':
+        this._state.dialogsPage.messageDraft = action.textMessage
+        this._subscriber()
+        break
+      default:
+        return
     }
-    postsArr.push(post)
-    this.state.profilePage.postDraft = ''
-    this.subscriber()
   },
-  sendMessage() {
-    const message = {
-      userID: 1,
-      message: this.state.dialogsPage.messageDraft
-    }
 
-    this.state.dialogsPage.messages.push(message)
-    this.state.dialogsPage.messageDraft = ''
-    this.subscriber()
-  },
-  savePostDraft(postMessage) {
-    this.state.profilePage.postDraft = postMessage
-    this.subscriber()
-  },
-  saveMessageDraft(textMessage) {
-    this.state.dialogsPage.messageDraft = textMessage
-    this.subscriber()
-  },
   subscribe(observer) {
-    this.subscriber = observer
+    this._subscriber = observer
   }
 }
 

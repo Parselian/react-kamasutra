@@ -10,11 +10,11 @@ const Dialogs = (props) => {
   const messages = props.state.messages.map(message => <Message message={message.message}/>)
   const newMessageElement = React.createRef()
   const sendMessage = () => {
-    props.sendMessage()
+    props.dispatch({type: 'SEND-MESSAGE'})
   }
   const saveMessageDraft = () => {
     const textMessage = newMessageElement.current.value
-    props.saveMessageDraft(textMessage)
+    props.dispatch({type: 'SAVE-MESSAGE-DRAFT', textMessage: textMessage})
   }
 
   return (
