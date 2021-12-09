@@ -1,18 +1,21 @@
 import classes from "./Posts.module.css"
 import Post from "./Post/Post"
 import React from "react"
+import {addPostActionCreator, savePostActionCreator} from "../../../redux/state"
+
 
 const Posts = (props) => {
   const posts = props.state.posts.map(post => <Post message={post.text} likesCount={post.likesCount}/>)
   const newPostElement = React.createRef()
   const addPost = () => {
     // props.addPost(props.state.postDraft)
-    props.dispatch({type: 'ADD-POST'})
+    props.dispatch(addPostActionCreator())
   }
   const savePostDraft = () => {
     let text = newPostElement.current.value
     // props.savePostDraft(text)
-    props.dispatch({type: 'SAVE-POST-DRAFT', postMessage: text})
+    const action = savePostActionCreator(text)
+    props.dispatch(action)
   }
 
   return (

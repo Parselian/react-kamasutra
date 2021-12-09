@@ -2,6 +2,7 @@ import classes from './Dialogs.module.css'
 import Dialog from "./Dialog/Dialog"
 import Message from "./Message/Message"
 import React from "react"
+import {sendMessageActionCreator, saveMessageDraftActionCreator} from '../../redux/state'
 
 const Dialogs = (props) => {
   const dialogs = props.state.dialogs.map((dialog) => {
@@ -10,11 +11,11 @@ const Dialogs = (props) => {
   const messages = props.state.messages.map(message => <Message message={message.message}/>)
   const newMessageElement = React.createRef()
   const sendMessage = () => {
-    props.dispatch({type: 'SEND-MESSAGE'})
+    props.dispatch(sendMessageActionCreator())
   }
   const saveMessageDraft = () => {
     const textMessage = newMessageElement.current.value
-    props.dispatch({type: 'SAVE-MESSAGE-DRAFT', textMessage: textMessage})
+    props.dispatch(saveMessageDraftActionCreator(textMessage))
   }
 
   return (

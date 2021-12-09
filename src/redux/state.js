@@ -116,6 +116,7 @@ let store = {
         this._subscriber()
         break
       default:
+        console.error('Requested function does not exist!')
         return
     }
   },
@@ -124,5 +125,19 @@ let store = {
     this._subscriber = observer
   }
 }
-
 export default store
+
+export const addPostActionCreator = () => ({ type: 'ADD-POST' }) //короткий способ записи простых функций
+export const savePostActionCreator = (text) => {
+  return {
+    type: 'SAVE-POST-DRAFT',
+    postMessage: text
+  }
+}
+export const sendMessageActionCreator = () => ({ type: 'SEND-MESSAGE' })
+export const saveMessageDraftActionCreator = (message) => (
+  {
+    type: 'SAVE-MESSAGE-DRAFT',
+    textMessage: message
+  }
+)
