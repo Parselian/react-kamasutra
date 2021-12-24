@@ -1,7 +1,12 @@
-let rerenderEntireTree;
+const ADD_POST = 'ADD-POST'
+      SAVE_POST_DRAFT = 'SAVE-POST-DRAFT'
+      SAVE_MESSAGE_DRAFT = 'SAVE-MESSAGE-DRAFT'
+      SEND_MESSAGE = 'SEND-MESSAGE'
+
+let rerenderEntireTree
 
 let store = {
-  _state: {
+  _state:  {
     navbar: {
       friends: [
         {
@@ -87,7 +92,7 @@ let store = {
   },
   dispatch(action) {
     switch (true) {
-      case action.type === 'ADD-POST':
+      case action.type === ADD_POST:
         const postsArr = this._state.profilePage.posts
         const post = {
           id: postsArr[postsArr.length - 1].id + 1,
@@ -98,11 +103,11 @@ let store = {
         this._state.profilePage.postDraft = ''
         this._subscriber()
         break
-      case action.type === 'SAVE-POST-DRAFT':
+      case action.type === SAVE_POST_DRAFT:
         this._state.profilePage.postDraft = action.postMessage
         this._subscriber()
         break
-      case action.type === 'SEND-MESSAGE':
+      case action.type === SEND_MESSAGE:
         const message = {
           userID: 1,
           message: this._state.dialogsPage.messageDraft
@@ -111,7 +116,7 @@ let store = {
         this._state.dialogsPage.messageDraft = ''
         this._subscriber()
         break
-      case action.type === 'SAVE-MESSAGE-DRAFT':
+      case action.type === SAVE_MESSAGE_DRAFT:
         this._state.dialogsPage.messageDraft = action.textMessage
         this._subscriber()
         break
@@ -127,17 +132,17 @@ let store = {
 }
 export default store
 
-export const addPostActionCreator = () => ({ type: 'ADD-POST' }) //короткий способ записи простых функций
+export const addPostActionCreator = () => ({ type: ADD_POST }) //короткий способ записи простых функций
 export const savePostActionCreator = (text) => {
   return {
-    type: 'SAVE-POST-DRAFT',
+    type: SAVE_POST_DRAFT,
     postMessage: text
   }
 }
-export const sendMessageActionCreator = () => ({ type: 'SEND-MESSAGE' })
+export const sendMessageActionCreator = () => ({ type: SEND_MESSAGE })
 export const saveMessageDraftActionCreator = (message) => (
   {
-    type: 'SAVE-MESSAGE-DRAFT',
+    type: SAVE_MESSAGE_DRAFT,
     textMessage: message
   }
 )
