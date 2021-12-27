@@ -2,19 +2,18 @@ import classes from './Dialogs.module.css'
 import Dialog from "./Dialog/Dialog"
 import Message from "./Message/Message"
 import React from "react"
-import {sendMessageActionCreator, saveMessageDraftActionCreator} from '../../redux/state'
+import {sendMessageActionCreator, saveMessageDraftActionCreator} from '../../redux/dialogsReducer'
 
 const Dialogs = (props) => {
   const dialogs = props.state.dialogs.map((dialog) => {
     return <Dialog id={dialog.id} name={dialog.name} msg={dialog.msg} img={dialog.img}/>
   })
   const messages = props.state.messages.map(message => <Message message={message.message}/>)
-  const newMessageElement = React.createRef()
   const sendMessage = () => {
     props.dispatch(sendMessageActionCreator())
   }
-  const saveMessageDraft = () => {
-    const textMessage = newMessageElement.current.value
+  const saveMessageDraft = (event) => {
+    const textMessage = event.target.value
     props.dispatch(saveMessageDraftActionCreator(textMessage))
   }
 
@@ -33,7 +32,7 @@ const Dialogs = (props) => {
         </div>
 
         <div className={classes.toolbar}>
-          <textarea ref={newMessageElement} onChange={saveMessageDraft} value={props.state.messageDraft} rows="1"
+          <textarea onChange={saveMessageDraft} value={props.state.messageDraft} rows="1"
                     className={classes.textarea} placeholder="Enter your message"></textarea>
           <button onClick={sendMessage} className={classes.button}>Send</button>
         </div>

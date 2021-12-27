@@ -1,7 +1,6 @@
-const ADD_POST = 'ADD-POST'
-      SAVE_POST_DRAFT = 'SAVE-POST-DRAFT'
-      SAVE_MESSAGE_DRAFT = 'SAVE-MESSAGE-DRAFT'
-      SEND_MESSAGE = 'SEND-MESSAGE'
+import profileReducer from './profileReducer'
+import dialogsReducer from './dialogsReducer'
+import navbarReducer from './navbarReducer'
 
 let rerenderEntireTree
 
@@ -91,39 +90,11 @@ let store = {
     return this._state
   },
   dispatch(action) {
-    switch (true) {
-      case action.type === ADD_POST:
-        const postsArr = this._state.profilePage.posts
-        const post = {
-          id: postsArr[postsArr.length - 1].id + 1,
-          text: this._state.profilePage.postDraft,
-          likesCount: 0
-        }
-        postsArr.push(post)
-        this._state.profilePage.postDraft = ''
-        this._subscriber()
-        break
-      case action.type === SAVE_POST_DRAFT:
-        this._state.profilePage.postDraft = action.postMessage
-        this._subscriber()
-        break
-      case action.type === SEND_MESSAGE:
-        const message = {
-          userID: 1,
-          message: this._state.dialogsPage.messageDraft
-        }
-        this._state.dialogsPage.messages.push(message)
-        this._state.dialogsPage.messageDraft = ''
-        this._subscriber()
-        break
-      case action.type === SAVE_MESSAGE_DRAFT:
-        this._state.dialogsPage.messageDraft = action.textMessage
-        this._subscriber()
-        break
-      default:
-        console.error('Requested function does not exist!')
-        return
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action)
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+    this._state.navbar = navbarReducer(this._state.navbar, action)
+
+    this._subscriber()
   },
 
   subscribe(observer) {
@@ -131,18 +102,3 @@ let store = {
   }
 }
 export default store
-
-export const addPostActionCreator = () => ({ type: ADD_POST }) //короткий способ записи простых функций
-export const savePostActionCreator = (text) => {
-  return {
-    type: SAVE_POST_DRAFT,
-    postMessage: text
-  }
-}
-export const sendMessageActionCreator = () => ({ type: SEND_MESSAGE })
-export const saveMessageDraftActionCreator = (message) => (
-  {
-    type: SAVE_MESSAGE_DRAFT,
-    textMessage: message
-  }
-)
