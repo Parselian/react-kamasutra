@@ -1,7 +1,28 @@
 const ADD_POST = 'ADD-POST',
       SAVE_POST_DRAFT = 'SAVE-POST-DRAFT'
 
-const profileReducer = (state, action) => {
+const initialState = {
+  postDraft: '',
+    posts: [
+    {
+      id: 1,
+      text: "Post lorem 1",
+      likesCount: 9
+    },
+    {
+      id: 2,
+      text: "Post lorem 2",
+      likesCount: 3
+    },
+    {
+      id: 3,
+      text: "Post lorem 3",
+      likesCount: 0
+    }
+  ]
+}
+
+const profileReducer = (state = initialState, action) => {
   switch (true) {
     case action.type === ADD_POST:
       const postsArr = state.posts

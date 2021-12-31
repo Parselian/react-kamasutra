@@ -1,7 +1,45 @@
 const SAVE_MESSAGE_DRAFT = 'SAVE-MESSAGE-DRAFT',
       SEND_MESSAGE = 'SEND-MESSAGE'
 
-const dialogsReducer = (state, action) => {
+const initialState = {
+  dialogs: [
+    {
+      id: 1,
+      name: "Dmitry",
+      msg: "message 1",
+      img: "https://cat4you.ru/wp-content/uploads/2/0/6/206748a82ce4894a460e2b70981e08f2.jpeg"
+    },
+    {
+      id: 2,
+      name: "Olya",
+      msg: "message 1",
+      img: "https://cat4you.ru/wp-content/uploads/2/0/6/206748a82ce4894a460e2b70981e08f2.jpeg"
+    },
+    {
+      id: 3,
+      name: "Sasha",
+      msg: "Sorry, i bus...",
+      img: "https://cat4you.ru/wp-content/uploads/2/0/6/206748a82ce4894a460e2b70981e08f2.jpeg"
+    }
+  ],
+    messageDraft: '',
+    messages: [
+    {
+      userID: 1,
+      message: "message 1"
+    },
+    {
+      userID: 1,
+      message: "message 2"
+    },
+    {
+      userID: 1,
+      message: "message 3"
+    },
+  ]
+}
+
+const dialogsReducer = (state = initialState, action) => {
   switch (true) {
     case action.type === SEND_MESSAGE:
       const message = {
