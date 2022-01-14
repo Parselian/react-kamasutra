@@ -1,6 +1,6 @@
 import './App.css'
 import Header from "./components/Header/Header"
-import Navbar from "./components/Navbar/Navbar"
+import NavbarContainer from "./components/Navbar/NavbarContainer"
 import DialogsContainer from "./components/Dialogs/DialogsContainer"
 import Profile from "./components/Profile/Profile"
 import News from "./components/News/News"
@@ -17,10 +17,10 @@ const App = (props) => {
     <Router>
       <div className="app-wrapper">
         <Header/>
-        <Navbar state={props.store.getState().navbar}/>
+        <NavbarContainer />
         <div className="app-wrapper__content">
-          <Route render={ () => <Profile store={props.store} /> } path="/profile"/>
-          <Route render={ () => <DialogsContainer store={props.store} /> } path="/messages"/>
+          <Route render={ () => <Profile /> } path="/profile"/>
+          <Route render={ () => <DialogsContainer /> } path="/messages"/>
           <Route component={News} path="/news"/>
           <Route component={Music} path="/music"/>
           <Route component={Settings} path="/settings"/>
