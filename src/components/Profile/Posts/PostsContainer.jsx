@@ -2,11 +2,11 @@ import classes from "./Posts.module.css"
 import Post from "./Post/Post"
 import Posts from "./Posts"
 import React from "react"
-import StoreContext from "../../../StoreContext"
+import { connect } from "react-redux"
 import {addPostActionCreator, savePostActionCreator} from "../../../redux/profileReducer"
 
 
-const PostsContainer = () => {
+/*const PostsContainer = () => {
   return (
     <StoreContext.Consumer>
       { //Открывающая фигурная скобка ОБЯЗАТЕЛЬНО должна стоять на следующей строке!!!!!!
@@ -26,6 +26,27 @@ const PostsContainer = () => {
       }
     </StoreContext.Consumer>
   )
+}*/
+
+const mapStateToProps = (state) => {
+  return {
+    posts: state.profilePage.posts,
+    postDraft: state.profilePage.postDraft
+  }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    savePostDraft: (text) => {
+      const action = savePostActionCreator(text)
+      dispatch(action)
+    },
+    addPost: () => {
+      dispatch(addPostActionCreator())
+    }
+  }
+}
+
+const PostsContainer = connect(mapStateToProps, mapDispatchToProps)(Posts)
 
 export default PostsContainer
