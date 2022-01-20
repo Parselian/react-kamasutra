@@ -9,7 +9,7 @@ import Settings from "./components/Settings/Settings"
 import {BrowserRouter as Router, Route} from "react-router-dom"
 
 // <App />
-const App = (props) => {
+const App = () => {
 
   return (
     //ВСЕГДА должен быть ОДИН корневой узел

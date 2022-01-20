@@ -9,7 +9,7 @@ import {addPostActionCreator, savePostActionCreator} from "../../../redux/profil
 const PostsContainer = () => {
   return (
     <StoreContext.Consumer>
-      {
+      { //Открывающая фигурная скобка ОБЯЗАТЕЛЬНО должна стоять на следующей строке!!!!!!
         (store) => {
           const state = store.getState().profilePage
           const addPost = () => {
