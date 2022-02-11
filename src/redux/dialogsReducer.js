@@ -40,18 +40,21 @@ const initialState = {
 }
 
 const dialogsReducer = (state = initialState, action) => {
+  const stateCopy = {...state}
+
   switch (true) {
     case action.type === SEND_MESSAGE:
       const message = {
         userID: 1,
-        message: state.messageDraft
+        message: stateCopy.messageDraft
       }
-      state.messages.push(message)
-      state.messageDraft = ''
-      return state
+      stateCopy.messages = [...state.messages]
+      stateCopy.messages.push(message)
+      stateCopy.messageDraft = ''
+      return stateCopy
     case action.type === SAVE_MESSAGE_DRAFT:
-      state.messageDraft = action.textMessage
-      return state
+      stateCopy.messageDraft = action.textMessage
+      return stateCopy
     default:
       return state
   }

@@ -23,20 +23,23 @@ const initialState = {
 }
 
 const profileReducer = (state = initialState, action) => {
+  let stateCopy = {...state}
+
   switch (true) {
     case action.type === ADD_POST:
-      const postsArr = state.posts
+      stateCopy.posts = [...state.posts]
+      const postsArr = stateCopy.posts
       const post = {
         id: postsArr[postsArr.length - 1].id + 1,
-        text: state.postDraft,
+        text: stateCopy.postDraft,
         likesCount: 0
       }
       postsArr.push(post)
-      state.postDraft = ''
-      return state
+      stateCopy.postDraft = ''
+      return stateCopy
     case action.type === SAVE_POST_DRAFT:
-      state.postDraft = action.postMessage
-      return state
+      stateCopy.postDraft = action.postMessage
+      return stateCopy
     default:
       return state
   }
