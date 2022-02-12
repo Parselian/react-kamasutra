@@ -5,9 +5,9 @@ import React from "react"
 
 const Dialogs = (props) => {
   const dialogs = props.dialogs.map((dialog) => {
-    return <Dialog id={dialog.id} name={dialog.name} msg={dialog.msg} img={dialog.img}/>
+    return <Dialog id={dialog.id} name={dialog.name} msg={dialog.msg} img={dialog.img} key={dialog.id}/>
   })
-  const messages = props.messages.map(message => <Message message={message.message}/>)
+  const messages = props.messages.map((message, id) => <Message message={message.message} key={id}/>)
 
   const saveMessageDraft = (event) => {
     const textMessage = event.target.value

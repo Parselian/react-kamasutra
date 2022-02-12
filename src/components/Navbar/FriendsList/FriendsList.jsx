@@ -6,7 +6,7 @@ const FriendsList = (props) => {
     let url = `/friends/${friend.id}`
 
     return (
-      <NavLink to={ url } className={classes.friend}>
+      <NavLink to={ url } className={classes.friend} key={friend.id}>
         <img src={ friend.img }
              className={classes.avatar}/>
         <span className={classes.name}>{ friend.name }</span>

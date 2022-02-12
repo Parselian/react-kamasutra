@@ -1,9 +1,9 @@
 const ADD_POST = 'ADD-POST',
-      SAVE_POST_DRAFT = 'SAVE-POST-DRAFT'
+  SAVE_POST_DRAFT = 'SAVE-POST-DRAFT'
 
 const initialState = {
   postDraft: '',
-    posts: [
+  posts: [
     {
       id: 1,
       text: "Post lorem 1",
@@ -23,23 +23,25 @@ const initialState = {
 }
 
 const profileReducer = (state = initialState, action) => {
-  let stateCopy = {...state}
-
   switch (true) {
     case action.type === ADD_POST:
-      stateCopy.posts = [...state.posts]
-      const postsArr = stateCopy.posts
-      const post = {
-        id: postsArr[postsArr.length - 1].id + 1,
-        text: stateCopy.postDraft,
-        likesCount: 0
+      return {
+        ...state,
+        posts: [
+          ...state.posts,
+          {
+            id: state.posts[state.posts.length - 1].id + 1,
+            text: state.postDraft,
+            likesCount: 0
+          }
+        ],
+        postDraft: ''
       }
-      postsArr.push(post)
-      stateCopy.postDraft = ''
-      return stateCopy
     case action.type === SAVE_POST_DRAFT:
-      stateCopy.postDraft = action.postMessage
-      return stateCopy
+      return {
+        ...state,
+        postDraft: action.postMessage
+      }
     default:
       return state
   }
@@ -47,7 +49,7 @@ const profileReducer = (state = initialState, action) => {
   return state
 }
 
-export const addPostActionCreator = () => ({ type: ADD_POST }) //короткий способ записи простых функций
+export const addPostActionCreator = () => ({type: ADD_POST}) //короткий способ записи простых функций
 export const savePostActionCreator = (text) => {
   return {
     type: SAVE_POST_DRAFT,

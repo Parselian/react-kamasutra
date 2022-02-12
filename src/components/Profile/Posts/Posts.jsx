@@ -3,7 +3,7 @@ import Post from "./Post/Post"
 import React from "react"
 
 const Posts = (props) => {
-  const posts = props.posts.map(post => <Post message={post.text} likesCount={post.likesCount}/>)
+  const posts = props.posts.map(post => <Post message={post.text} key={post.id} likesCount={post.likesCount}/>)
 
   const savePostDraft = (e) => {
     let text = e.target.value
