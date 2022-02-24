@@ -4,6 +4,7 @@ import NavbarContainer from "./components/Navbar/NavbarContainer"
 import DialogsContainer from "./components/Dialogs/DialogsContainer"
 import Profile from "./components/Profile/Profile"
 import News from "./components/News/News"
+import UsersContainer from './components/Users/UsersContainer'
 import Music from "./components/Music/Music"
 import Settings from "./components/Settings/Settings"
 import {BrowserRouter as Router, Route} from "react-router-dom"
@@ -21,6 +22,7 @@ const App = () => {
         <div className="app-wrapper__content">
           <Route render={ () => <Profile /> } path="/profile"/>
           <Route render={ () => <DialogsContainer /> } path="/messages"/>
+          <Route render={ ()=> <UsersContainer />} path="/users"/>
           <Route component={News} path="/news"/>
           <Route component={Music} path="/music"/>
           <Route component={Settings} path="/settings"/>
