@@ -44,7 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Users" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -55,6 +55,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\react-kamasutra\src\components\Users" />
       <recent name="C:\OpenServer\domains\react-kamasutra\src\components\Navbar" />
       <recent name="C:\OpenServer\domains\react-kamasutra\src\components\Dialogs" />
       <recent name="C:\OpenServer\domains\react-kamasutra\src\components\Profile\Posts" />
@@ -119,6 +120,7 @@
       <workItem from="1646246601704" duration="689000" />
       <workItem from="1646373104427" duration="3492000" />
       <workItem from="1646769801042" duration="588000" />
+      <workItem from="1646826728502" duration="1361000" />
     </task>
     <servers />
   </component>
