@@ -4,9 +4,15 @@ import * as axios from 'axios'
 import avatar from '../../assets/images/avatar.jpg'
 
 class Users extends React.Component {
-  constructor(props) {
-    super(props); // export props object into constructor of parent class (React.Component)
+  // IF WE DON`T ADD UNIQUE FUNCTIONALITY INTO CONSTRUCTOR, WE CAN DON`T DESCRIBE IT`S LOGIC
+  /*
+    constructor(props) {
+      super(props); // export props object into constructor of parent class (React.Component)
+    }
+  */
 
+  // This method will call only ONE time: when component will return .JSX first time.
+  componentDidMount() {
     axios
       .get("https://social-network.samuraijs.com/api/1.0/users")
       .then(response => {
@@ -14,6 +20,7 @@ class Users extends React.Component {
       })
   }
 
+  // This method is unique for every component because we return different .JSX in different components
   render() {
     return (
       <section>
