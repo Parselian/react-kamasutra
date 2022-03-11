@@ -1,3 +1,8 @@
+.currentPage {
+    font-weight: 700;
+    color: red;
+}
+
 .user {
     margin-left: auto;
     margin-right: auto;
