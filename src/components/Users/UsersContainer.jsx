@@ -17,9 +17,9 @@ class UsersAPIComponent extends React.Component {
       this.getUsers()
   }
 
-  getUsers() {
+  getUsers(page = this.props.currentPage) {
     axios
-      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}
+      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}
         &count=${this.props.usersPerPage}`)
       .then(response => {
         this.props.setUsers(response.data.items)
@@ -29,7 +29,7 @@ class UsersAPIComponent extends React.Component {
 
   onPageChange(page) {
     this.props.setCurrentPage(page)
-    this.getUsers()
+    this.getUsers(page)
   }
 
   // This method is unique for every component because we return different .JSX in different components
