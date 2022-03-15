@@ -2,7 +2,8 @@ const FOLLOW = 'FOLLOW',
   UNFOLLOW = 'UNFOLLOW',
   SET_USERS = 'SET_USERS',
   SET_CURRENT_PAGE = 'SET_CURRENT_PAGE',
-  SET_PAGES_AMOUNT = 'SET_PAGES_AMOUNT'
+  SET_PAGES_AMOUNT = 'SET_PAGES_AMOUNT',
+  TOGGLE_IS_FETCHED = 'TOGGLE_IS_FETCHED'
 
 const initialState = {
   users: [
@@ -25,7 +26,8 @@ const initialState = {
   ],
   usersPerPage: 10,
   pagesAmount: 1,
-  currentPage: 1
+  currentPage: 1,
+  isFetched: true
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -35,10 +37,7 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         users: state.users.map(user => {
             if (user.id === action.userID) {
-              return {
-                ...user,
-                isFollowed: true
-              }
+              return { ...user, isFollowed: true }
             }
 
             return user
@@ -50,29 +49,19 @@ const usersReducer = (state = initialState, action) => {
         users:
           state.users.map(user => {
             if (user.id === action.userID) {
-              return {
-                ...user,
-                isFollowed: false
-              }
+              return { ...user, isFollowed: false }
             }
             return user
           })
       }
     case action.type === SET_USERS:
-      return {
-        ...state,
-        users: [...action.users]
-      }
+      return { ...state, users: [...action.users] }
     case action.type === SET_CURRENT_PAGE:
-      return {
-        ...state,
-        currentPage: action.currentPage
-      }
+      return { ...state, currentPage: action.currentPage }
     case action.type === SET_PAGES_AMOUNT:
-      return {
-        ...state,
-        pagesAmount: Math.ceil(action.usersAmount / state.usersPerPage)
-      }
+      return { ...state, pagesAmount: Math.ceil(action.usersAmount / state.usersPerPage) }
+    case action.type === TOGGLE_IS_FETCHED:
+      return { ...state, isFetched: action.isFetched }
     default:
       return state
   }
@@ -87,3 +76,4 @@ export const unfollowAC = (userID) => ( { type: UNFOLLOW, userID } )
 export const setUsersAC = (users) => ( { type: SET_USERS, users } )
 export const setCurrentPageAC = (page) => ( { type: SET_CURRENT_PAGE, currentPage: page } )
 export const setPagesAmountAC = (usersAmount) => ( { type: SET_PAGES_AMOUNT, usersAmount } )
+export const toggleIsFetchedAC = (isFetched) => ( { type: TOGGLE_IS_FETCHED, isFetched } )
