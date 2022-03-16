@@ -1,7 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { followAC, unfollowAC, setUsersAC, setCurrentPageAC, setPagesAmountAC,
-  toggleIsFetchedAC } from '../../redux/usersReducer'
+import {connect} from 'react-redux'
+import {follow, unfollow, setUsers, setCurrentPage, setPagesAmount, toggleIsFetched} from '../../redux/usersReducer'
 import Users from './Users'
 import * as axios from 'axios'
 import preloader from '../../assets/svg/preloader.svg'
@@ -39,12 +38,14 @@ class UsersAPIComponent extends React.Component {
 
   // This method is unique for every component because we return different .JSX in different components
   render() {
-    return(
+    return (
       <>
-      {this.props.isFetched ? <object type="image/svg+xml" data={preloader} width="200" height="200"></object> : null}
+        {this.props.isFetched ? <object type="image/svg+xml" data={preloader} width="200" height="200"></object> : null}
         <Users pagesAmount={this.props.pagesAmount}
                currentPage={this.props.currentPage}
-               onPageChange={ (page) => { this.onPageChange(page) } }
+               onPageChange={(page) => {
+                 this.onPageChange(page)
+               }}
                users={this.props.users}
                follow={this.props.follow}
                unfollow={this.props.unfollow}/>
@@ -63,6 +64,7 @@ const mapStateToProps = (state) => {
   }
 }
 
+/*
 const mapDispatchToProps = (dispatch) => {
   return {
     follow: (userID) => {
@@ -85,5 +87,13 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
+*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent)
+export default connect(mapStateToProps, {
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setPagesAmount,
+  toggleIsFetched
+})(UsersAPIComponent)
