@@ -1,17 +1,20 @@
 import classes from './ProfileInfo.module.css'
 
 const ProfileInfo = (props) => {
+  if (!props.profileInfo) {
+    return <></>
+  }
   return (
     <div>
-      <img src="https://uprostim.com/wp-content/uploads/2021/05/image014-7.jpg" alt="banner"
+      <img src={props.profileInfo.photos.large} alt="banner"
            className={classes.banner}/>
 
       <div className={classes.about}>
-        <img src="https://volonter61.ru/800/600/https/oir.mobi/uploads/posts/2020-01/1579279425_13-17.jpg"
+        <img src={props.profileInfo.photos.small}
              alt="photo" className={classes.photo}/>
 
         <div className={classes.info}>
-          <h2 className={classes.username}>Pavel K.</h2>
+          <h2 className={classes.username}>{props.profileInfo.fullName}</h2>
 
           <div className={classes.row}>
             <span className="title">Date of Birth:</span>
@@ -27,7 +30,7 @@ const ProfileInfo = (props) => {
           </div>
           <div className={classes.row}>
             <span className="title">Web Site:</span>
-            <span className={classes['row__info']}>https://google.com</span>
+            <span className={classes['row__info']}>{props.profileInfo.contacts.website}</span>
           </div>
         </div>
       </div>

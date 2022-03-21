@@ -10,7 +10,6 @@ const reducers = combineReducers({
   navbar: navbarReducer,
   usersPage: usersReducer
 })
-
 const store = createStore(reducers)
 
 export default store

@@ -2,7 +2,7 @@ import './App.css'
 import Header from "./components/Header/Header"
 import NavbarContainer from "./components/Navbar/NavbarContainer"
 import DialogsContainer from "./components/Dialogs/DialogsContainer"
-import Profile from "./components/Profile/Profile"
+import ProfileContainer from "./components/Profile/ProfileContainer"
 import News from "./components/News/News"
 import UsersContainer from './components/Users/UsersContainer'
 import Music from "./components/Music/Music"
@@ -20,7 +20,7 @@ const App = () => {
         <Header/>
         <NavbarContainer />
         <div className="app-wrapper__content">
-          <Route render={ () => <Profile /> } path="/profile"/>
+          <Route render={ () => <ProfileContainer /> } path="/profile"/>
           <Route render={ () => <DialogsContainer /> } path="/messages"/>
           <Route render={ ()=> <UsersContainer />} path="/users"/>
           <Route component={News} path="/news"/>

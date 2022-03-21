@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST',
-  SAVE_POST_DRAFT = 'SAVE-POST-DRAFT'
+  SAVE_POST_DRAFT = 'SAVE-POST-DRAFT',
+  SET_USER_PROFILE_INFO = 'SET_USER_PROFILE_INFO'
 
 const initialState = {
   postDraft: '',
@@ -42,6 +43,11 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         postDraft: action.postMessage
       }
+    case action.type === SET_USER_PROFILE_INFO:
+      return {
+        ...state,
+        profileInfo: action.profileInfo
+      }
     default:
       return state
   }
@@ -56,5 +62,6 @@ export const savePostActionCreator = (text) => {
     postMessage: text
   }
 }
+export const setUserProfileInfo = (profileInfo) => ({type: SET_USER_PROFILE_INFO, profileInfo})
 
 export default profileReducer
