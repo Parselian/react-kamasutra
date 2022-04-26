@@ -1,4 +1,5 @@
 import classes from './ProfileInfo.module.css'
+import avatar from '../../../assets/images/avatar.jpg'
 
 const ProfileInfo = (props) => {
   if (!props.profileInfo) {
@@ -10,7 +11,7 @@ const ProfileInfo = (props) => {
            className={classes.banner}/>
 
       <div className={classes.about}>
-        <img src={props.profileInfo.photos.small}
+        <img src={props.profileInfo.photos.small || avatar}
              alt="photo" className={classes.photo}/>
 
         <div className={classes.info}>

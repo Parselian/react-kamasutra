@@ -16,7 +16,7 @@ const Users = (props) => {
         return <button className={page === props.currentPage ? classes.currentPage : ''}
                        onClick={(event) => {
                          props.onPageChange(page)
-                       }}>{page}</button>
+                       }} key={page}>{page}</button>
       })}
     </div>
     {props.users.map(user => (<div className={classes.user} key={user.id}>
@@ -32,7 +32,7 @@ const Users = (props) => {
         }}>Follow</button>}
       </div>
       <div className={classes.userInfo}>
-        <div className={classes.userInfoRow, classes.userInfoCredentials}>
+        <div className={[classes.userInfoRow, classes.userInfoCredentials]}>
           <div className={classes.userName}>{user.name}</div>
           <div className={classes.userLocation}>
             <span className={classes.userCountry}> hidden,</span>
